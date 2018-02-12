@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page 2</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/MyStyle.css">
+	<style type="text/css">
+		.center{
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			width: 50%;
+			padding: 7px 35px 25px 35px;
+		}
+		body{
+			background-color: #e9e9e9;
+		}
+	</style>
+	<script type="text/javascript">
+		function val_form(form){
+			function cek_checkBox(ckb){
+				for (var i = 0; i < ckb.length; i++) {
+					if (ckb[i].checked === true) {
+						return ckb[i].value;
+					}
+				}
+				return false;
+			}
+
+			var ck = cek_checkBox(form.hobi);
+
+			if (
+				((form.jk[0].checked == false) && (form.jk[1].checked == false)) ||
+				(form.nama.value == "") ||
+				(form.nisn.value == "") ||
+				(ck === false) ||
+				(form.notlp.value == "") ||
+				(form.jurusan.value == "pilih") ||
+				(form.alamat.value == "")
+			   ){
+				alert('Tidak Bisa Memproses Data karena ada data yang Kosong\n\nNama : '+form.nama.value+'\nNISN : '+form.nisn.value+'\nJenkel : '+form.jk.value+'\nHobi : '+ck+'\nNotlp : '+form.notlp.value+'\nAlamat : '+form.alamat.value+'\nJurusan : '+form.jurusan.value);
+				return false;
+			}else{
+				window.location = 'selesai.html';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="center">
+		<div class="container-fluid">
+			<div class="row">
+				<h3 align="center">Formulir Pendafataran Mahasiswa Baru</h3>
+				<form id="borang" class="form-vertical">
+					<div class="form-group">
+						<label>Nama</label>
+						<input type="text" name="nama" class="form-control" placeholder="Nama">
+					</div>
+					<div class="form-group">
+						<label>NISN</label>
+						<input type="text" name="nisn" class="form-control" placeholder="NISN">
+					</div>
+					<div class="form-group">
+						<label>Jenis Kelamin</label>
+						<div class="radio">
+							<label><input class="" value="laki-laki" type="radio" name="jk">Laki-Laki</label>
+						</div>
+						<div class="radio">
+							<label><input type="radio"  value="Perempuan" name="jk">Perempuan</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Hobi</label>
+						<div class="col-md-12">
+							<div class="col-md-4">
+								<div class="checkbox">
+									<label><input name="hobi" type="checkbox" value="programming">Programming</label>
+								</div>
+								<div class="checkbox">
+									<label><input name="hobi" type="checkbox" value="membaca">Membaca</label>
+								</div>	
+							</div>
+							<div class="col-md-4">
+								<div class="checkbox">
+									<label><input name="hobi" type="checkbox" value="menyanyi">Menyanyi</label>
+								</div>
+								<div class="checkbox">
+									<label><input name="hobi" type="checkbox" value="mapala">Mapala</label>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>No.Telp</label>
+						<input type="text" name="notlp" class="form-control" placeholder="No.Telp">
+					</div>
+					<div class="form-group">
+						<label>Alamat</label>
+						<textarea class="form-control" name="alamat" placeholder="No.Telp"></textarea>
+					</div>
+					<div class="form-group">
+						<label>Pilih Jurusan</label>
+						<select class="form-control" name="jurusan">
+							<optgroup label="Fakultas Teknik">
+								<option>Teknik Informatika</option>
+								<option>Teknik Sipil S1</option>
+								<option>Teknik Sipil D3</option>
+								<option>Teknik Elektro</option>
+								<option>Teknik Listrik D3</option>
+								<option>Teknik Mesin</option>
+							</optgroup>
+							<optgroup label="Fakultas Ekonomi">
+								<option>Ekonomi Pembangunan</option>
+								<option>Ekonomi Manajemen</option>
+								<option>Ekonomi Akuntansi</option>	
+							</optgroup>
+							<optgroup label="Fakultas Hukum">
+								<option>Hukum</option>
+							</optgroup>
+							<option selected value="">--Pilih Jurusan--</option>
+						</select>
+					</div>
+					<button type="button" class="btn btn-success pull-right" onclick="val_form(this.form)"><i class="fa fa-user"></i> Daftar!</button>
+				</form>
+			</div>
+		</div>
+	</div>	
+
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</body>
+</html>
